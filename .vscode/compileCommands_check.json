@@ -8,7 +8,23 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.5\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\samay\\Documents\\Github\\Json-template\\Source\\check\\Private\\MyBox.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\samay\\Documents\\Github\\Json-template\\.vscode\\compileCommands_check\\check.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\samay\\Documents\\Github\\Json-template\\Source\\check\\Public\\GameManager.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\samay\\Documents\\Github\\Json-template\\.vscode\\compileCommands_check\\check.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\samay\\Documents\\Github\\Json-template\\Source\\check\\Public\\MyBox.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\samay\\Documents\\Github\\Json-template\\.vscode\\compileCommands_check\\check.1.rsp"

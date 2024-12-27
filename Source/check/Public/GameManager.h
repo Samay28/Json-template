@@ -1,35 +1,65 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Http.h"
+#include "JsonObjectConverter.h"
 #include "GameManager.generated.h"
+USTRUCT()
+struct FTransformData
+{
+    GENERATED_BODY()
+
+    FVector Location;
+    FRotator Rotation;
+    FVector Scale;
+};
+
+USTRUCT()
+struct FBoxType
+{
+    GENERATED_BODY()
+
+    FString Name;
+    TArray<float> Color; // [R, G, B]
+    int32 Health;
+    int32 Score;
+};
+
+USTRUCT()
+struct FBoxObject
+{
+    GENERATED_BODY()
+
+    FString Type;
+    FTransformData Transform;
+};
+
+USTRUCT()
+struct FBoxData
+{
+    GENERATED_BODY()
+
+    TArray<FBoxType> Types;
+    TArray<FBoxObject> Objects;
+};
 
 UCLASS()
 class CHECK_API AGameManager : public AActor
 {
-	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	AGameManager();
+    GENERATED_BODY()
 
-	void SpawnBox(const FString& Type, const FString& Color, int32 Health, int32 Score);
-
+public:
+    AGameManager();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+    virtual void BeginPlay() override;
 
-	void FetchJSONData();
-	void ParseJSONData(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
+private:
+    UPROPERTY(EditAnywhere, Category = "Spawning")
+    TSubclassOf<AActor> BoxActorClass;
 
-	FString JSONURL;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
+    void FetchJSON();
+    void OnResponseReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
+    void SpawnBox(const FBoxObject& BoxObject, const FBoxType& BoxType);
 };

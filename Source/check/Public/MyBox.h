@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -9,29 +7,30 @@
 UCLASS()
 class CHECK_API AMyBox : public AActor
 {
-	GENERATED_BODY()
-
+    GENERATED_BODY()
+    
 public:
-	// Sets default values for this actor's properties
-	AMyBox();
+    AMyBox();
 
-	void Initialize(FString ColorHex, int32 InitialHealth, int32 ScoreValue);
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
+    virtual void BeginPlay() override;
 
 public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+    virtual void Tick(float DeltaTime) override;
 
-	void TakeDamageFromPlayer();
+    // Set up the box's properties
+    void InitializeBox(const FLinearColor& BoxColor, int32 BoxHealth, int32 BoxScore);
 
 private:
-	UStaticMeshComponent *BoxMesh;
+    UPROPERTY(VisibleAnywhere, Category = "Components")
+    UStaticMeshComponent* BoxMesh;
 
-	int32 Health;
-	int32 Score;
+    UPROPERTY(EditAnywhere, Category = "Box Properties")
+    int32 Health;
 
-	UMaterialInstanceDynamic *MaterialInstance;
+    UPROPERTY(EditAnywhere, Category = "Box Properties")
+    int32 Score;
+
+    UPROPERTY(EditAnywhere, Category = "Box Properties")
+    FLinearColor Color;
 };
